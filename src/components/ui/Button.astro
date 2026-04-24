@@ -1,0 +1,9 @@
+---
+const { title, bg } = Astro.props;
+---
+
+<button
+  class={`text-white border border-transparent ${bg} shadow-xs font-bold leading-5 rounded-lg uppercase text-xs px-8 py-2 focus:outline-none active:scale-95 transition-transform duration-150`}
+>
+  {title}
+</button>

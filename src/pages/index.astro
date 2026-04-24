@@ -1,11 +1,88 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Button from "../components/ui/Button.astro";
+import Header from "../components/ui/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/ui/Footer.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <main>
+    <section class="px-6 py-16">
+      <article class="flex flex-col gap-4">
+        <header>
+          <span
+            class="text-sm font-medium px-2 py-1 rounded bg-green-100 text-green-800"
+            >Open until 8:00 PM</span
+          >
+          <h1 class="font-bold text-4xl">
+            Your daily dose of <span
+              class="font-serif font-normal italic text-tertiary">coffee.</span
+            >
+          </h1>
+        </header>
+        <p class="text-primary text-lg">
+          Welcome back to Bryan's Cafe. Find your corner, grab a fresh brew, and
+          let the world slow down for a while.
+        </p>
+        <div>
+          <Button title="View Menu" bg="bg-tertiary" />
+          <Button title="Our Story" bg="bg-primary" />
+        </div>
+        <div class="w-xs">
+          <img
+            src="/images/hero.png"
+            alt="A barista pouring latte art into a cup of coffee at Bryan's Cafe"
+            class="w-full mx-auto h-auto rounded-lg object-cover"
+          />
+        </div>
+      </article>
+    </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 pb-16 px-6">
+      <article class="p-4">
+        <header>
+          <h3
+            class="text-tertiary font-semibold font-sans uppercase tracking-widest"
+          >
+            Our Heritage
+          </h3>
+          <h2 class="text-2xl font-semibold text-primary tracking-wide">
+            Bryan's Legacy: Defined by Community.
+          </h2>
+        </header>
+        <div class="">
+          <p>
+            Founded in 2018, Bryan's Cafe started as a simple idea: that coffee
+            should be more than a caffeine fix—it should be a ritual. We source
+            our beans from single-origin farms that prioritize sustainability
+            and fair wages.
+          </p>
+          <p class="border-b border-secondary my-4 pb-4">
+            Every cup is brewed with precision, and every plate is prepared with
+            seasonal ingredients from local growers. We invite you to sit back,
+            unplug, and enjoy the modern hearth.
+          </p>
+          <div>
+            <p class="text-xl font-serif italic">
+              "The best coffee is the one shared with others."
+            </p>
+            <p class="font-semibold">Bryan, Founder</p>
+          </div>
+        </div>
+      </article>
+      <div class="grid grid-cols-2 gap-4 py-16 px-6 max-w-[90%] mx-auto">
+        <img
+          src="./images/history.png"
+          alt="Bryan's Cafe interior with customers enjoying coffee"
+          class="w-full h-full rounded-lg object-cover"
+        />
+        <img
+          src="/images/history_2.png"
+          alt="Cozy coffee shop interior with warm lighting and rustic decor"
+          class="w-full h-full rounded-lg object-cover mt-16"
+        />
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Layout>
