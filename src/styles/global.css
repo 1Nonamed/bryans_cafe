@@ -4,15 +4,15 @@
   --font-serif: "Noto Serif", serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --color-primary: #4B2C20; /* Dark brown */
-  --color-secondary: #F5E6D3; /* Light brown */
-  --color-tertiary: #203225; /* Light green */
-  --color-cafe-bg: #FDF9F5;
+  --color-secondary: #F2E8DF; /* Light brown */
+  --color-tertiary: #4A5D4E; /* Dark green */
   --color-neutral: #FAF7F2; /* Dark gray */ 
 }
 
 @layer base {
   body {
     @apply font-sans;
+    color: var(--color-primary)
   }
 
   h1, h2, h3, h4, h5, h6 {
