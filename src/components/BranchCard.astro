@@ -1,15 +1,22 @@
 ---
-const { address, phoneNumber, schedule } = Astro.props;
+const { address, phoneNumber, schedule, variant = "light" } = Astro.props;
+const isDark = variant === "dark";
+
+const darkVariantBg = isDark
+  ? "bg-tertiary border-tertiary text-neutral"
+  : "bg-neutral border-neutral";
+
+const darkVariantText = isDark ? "text-neutral" : "text-tertiary";
 ---
 
-<article class="border rounded-lg py-6 px-4 bg-neutral border-neutral">
+<article class=`border rounded-lg py-6 px-4 ${darkVariantBg}`>
   <ul class="flex flex-col gap-4">
     <li class="flex gap-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        class="size-6 text-tertiary"
+        class=`size-6 ${darkVariantText}`
       >
         <path
           fill-rule="evenodd"
@@ -17,7 +24,9 @@ const { address, phoneNumber, schedule } = Astro.props;
           clip-rule="evenodd"></path>
       </svg>
       <div class="flex flex-col text-sm gap-2">
-        <h3 class="text-tertiary font-bold font-sans uppercase">Address</h3>
+        <h3 class=`${darkVariantText} font-bold font-sans uppercase`>
+          Address
+        </h3>
         <span>{address}</span>
       </div>
     </li>
@@ -26,7 +35,7 @@ const { address, phoneNumber, schedule } = Astro.props;
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        class="size-6 text-tertiary"
+        class=`size-6 ${darkVariantText}`
       >
         <path
           fill-rule="evenodd"
@@ -34,7 +43,9 @@ const { address, phoneNumber, schedule } = Astro.props;
           clip-rule="evenodd"></path>
       </svg>
       <div class="flex flex-col text-sm gap-2">
-        <h3 class="text-tertiary font-bold font-sans uppercase">Contact</h3>
+        <h3 class=`${darkVariantText} font-bold font-sans uppercase`>
+          Contact
+        </h3>
         <span>{phoneNumber}</span>
       </div>
     </li>
@@ -43,7 +54,7 @@ const { address, phoneNumber, schedule } = Astro.props;
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        class="size-6 text-tertiary"
+        class=`size-6 ${darkVariantText}`
       >
         <path
           fill-rule="evenodd"
@@ -51,7 +62,7 @@ const { address, phoneNumber, schedule } = Astro.props;
           clip-rule="evenodd"></path>
       </svg>
       <div class="flex flex-col text-sm gap-2">
-        <h3 class="text-tertiary font-bold font-sans uppercase">
+        <h3 class=`${darkVariantText} font-bold font-sans uppercase`>
           Opening Hours
         </h3>
         <div class="flex flex-col">
