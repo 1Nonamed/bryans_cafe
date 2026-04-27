@@ -1,0 +1,60 @@
+---
+import ProductCard from "../components/ProductCard.astro";
+import ProductSection from "../components/ProductSection.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="bg-neutral px-6 pt-12 pb-16">
+      <article class="text-center flex flex-col gap-4">
+        <h1
+          class="text-tertiary text-5xl text-balance font-bold tracking-wide leading-tight py-2"
+        >
+          Our Crafted Menu
+        </h1>
+        <p class="text-xl text-balance py-2 tracking-wide leading-relaxed">
+          Carefully sourced, thoughtfully prepared. Every item is a reflection
+          of our commitment to slow-living and artisanal quality.
+        </p>
+      </article>
+    </section>
+    <ProductSection title="Coffee">
+      <ProductCard
+        product="Coffee Late"
+        price="4.00"
+        imageUrl="/public/images/products/coffee-latte.png"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
+        category="coffee"
+      />
+    </ProductSection>
+    <ProductSection title="Chocolate">
+      <ProductCard
+        product="Soda"
+        price="4.00"
+        imageUrl="/public/images/products/coffee-latte.png"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
+      />
+    </ProductSection>
+    <ProductSection title="Other Beverages">
+      <ProductCard
+        product="Soda"
+        price="3.00"
+        imageUrl="/public/images/products/coffee-latte.png"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
+      />
+      <ProductCard
+        product="Fresh Juice"
+        price="6.00"
+        imageUrl="/public/images/products/coffee-latte.png"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
+      />
+      <ProductCard
+        product="Bottled Water"
+        price="3.00"
+        imageUrl="/public/images/products/coffee-latte.png"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
+      />
+    </ProductSection>
+  </main>
+</Layout>

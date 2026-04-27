@@ -1,0 +1,44 @@
+---
+const {
+  product,
+  description,
+  price,
+  imageUrl,
+  category = "other",
+} = Astro.props;
+---
+
+<article
+  class="flex flex-col gap-4 rounded-md bg-secondary/30 shadow-xs px-4 py-6"
+>
+  <div class="flex gap-4 pb-4">
+    <div class="w-24 shrink-0 rounded-lg overflow-hidden">
+      <img src={imageUrl} alt={product} class="w-full h-full object-cover" />
+    </div>
+    <div class="flex flex-col gap-2 pr-2">
+      <h3 class="text-tertiary font-bold text-xl">{product}</h3>
+      <p class="leading-tight">
+        {description}
+      </p>
+    </div>
+  </div>
+  {
+    category === "other" ? (
+      <p class="self-end font-semibold bg-secondary py-0.5 px-2 rounded-lg">
+        $ {price}
+      </p>
+    ) : (
+      <div class="self-end flex gap-2">
+        <p class="font-semibold bg-secondary py-0.5 px-2 rounded-lg">
+          S: $ {price}
+        </p>
+        <p class="font-semibold bg-secondary py-0.5 px-2 rounded-lg">
+          M: $ {price}
+        </p>
+        <p class="font-semibold bg-secondary py-0.5 px-2 rounded-lg">
+          L: $ {price}
+        </p>
+      </div>
+    )
+  }
+</article>
