@@ -4,32 +4,32 @@ import Button from "./ui/Button.astro";
 
 <form
   action="#"
-  class="flex flex-col gap-2 border-2 rounded-lg border-tertiary py-6 px-4"
+  class="flex flex-col gap-2 border-2 rounded-lg border-tertiary/50 p-6 md:py-8 mx-auto w-full md:w-md"
 >
   <input
     type="text"
     id="name"
-    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
+    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 md:py-2 md:text-lg outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
     placeholder="Name"
     autocomplete="name"
   />
   <input
     type="email"
     id="email"
-    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
+    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 md:py-2 md:text-lg outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
     placeholder="Email"
     autocomplete="email"
   />
   <input
     type="text"
     id="subject"
-    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
+    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 md:py-2 md:text-lg outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
     placeholder="Subject"
     autocomplete="off"
   />
   <textarea
     id="message"
-    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
+    class="w-full rounded-md border-2 border-secondary pl-2 py-1.5 md:py-2 md:text-lg outline-none focus:ring-1 focus:ring-tertiary focus:border-tertiary mb-1 bg-neutral"
     placeholder="Your message..."
     autocomplete="off"
     rows="4"></textarea>

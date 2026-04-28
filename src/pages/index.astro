@@ -4,16 +4,18 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main>
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 pt-12 pb-16">
-      <article class="flex flex-col gap-4 px-4">
+  <main class="bg-white">
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4 md:px-6 py-16 md:py-20 md:max-w-5xl lg:max-w-7xl mx-auto"
+    >
+      <article class="flex flex-col gap-3 md:gap-4 px-2 md:px-4">
         <header class="flex flex-col gap-2">
           <span
-            class="text-sm font-medium px-2 py-1 mb-2 rounded bg-green-100 text-green-800 w-fit"
-            >Open until 8:00 PM</span
+            class="text-sm md:text-base font-medium px-2 py-1 mb-2 rounded-lg bg-green-100 text-green-800 w-fit"
+            >Open until 4:00 PM</span
           >
           <h1
-            class="text-5xl text-balance font-bold tracking-wide leading-tight"
+            class="text-5xl md:text-7xl text-balance font-bold tracking-wide leading-tight"
           >
             Your daily dose of <span
               class="font-serif font-semibold italic text-tertiary"
@@ -21,22 +23,26 @@ import Layout from "../layouts/Layout.astro";
             >
           </h1>
         </header>
-        <div class="flex flex-col gap-2">
-          <p class="text-lg py-2">
+        <div class="flex flex-col gap-2 py-2">
+          <p
+            class="text-lg lg:text-xl text-balance py-2 tracking-wide leading-relaxed"
+          >
             Welcome back to Bryan's Cafe. Find your corner, grab a fresh brew,
             and let the world slow down for a while.
           </p>
-          <p class="text-lg py-2">
+          <p
+            class="text-lg lg:text-xl text-balance py-2 tracking-wide leading-relaxed"
+          >
             A sanctuary for coffee purists and comfort seekers. Experience our
             small-batch roasts and artisanal kitchen in the heart of the city.
           </p>
         </div>
-        <div class="flex gap-4 mb-4">
-          <Button title="View Menu" bg="bg-tertiary" />
+        <div class="flex gap-3 md:gap-4 mb-4">
+          <Button title="View Menu" bg="bg-tertiary" href="/menu" />
           <Button title="Our Story" bg="bg-primary" />
         </div>
       </article>
-      <div class="px-4">
+      <div class="self-center max-w-lg md:ml-auto rounded-lg overflow-hidden">
         <img
           src="/images/hero.png"
           alt="A barista pouring latte art into a cup of coffee at Bryan's Cafe"
@@ -44,49 +50,57 @@ import Layout from "../layouts/Layout.astro";
         />
       </div>
     </section>
-    <section class="bg-secondary grid grid-cols-1 md:grid-cols-2 pb-16 px-6">
-      <article class="flex flex-col gap-4 px-4 pt-16">
-        <header class="flex flex-col gap-2">
-          <h3
-            class="text-tertiary font-bold font-sans uppercase tracking-widest"
-          >
-            Our Heritage
-          </h3>
-          <h2 class="text-3xl tracking-wide leading-snug">
-            Bryan's Legacy: Defined by Community.
-          </h2>
-        </header>
-        <div class="flex flex-col gap-2">
-          <p class="text-balance py-2">
-            Founded in 2018, Bryan's Cafe started as a simple idea: that coffee
-            should be more than a caffeine fix—it should be a ritual. We source
-            our beans from single-origin farms that prioritize sustainability
-            and fair wages.
-          </p>
-          <p class="text-balance border-b border-primary pt-2 pb-4">
-            Every cup is brewed with precision, and every plate is prepared with
-            seasonal ingredients from local growers. We invite you to sit back,
-            unplug, and enjoy the modern hearth.
-          </p>
-          <div class="flex flex-col gap-1 mt-4">
-            <p class="text-xl font-serif italic">
-              "The best coffee is the one shared with others."
+    <section class="bg-secondary px-4 py-16 md:py-20">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 md:max-w-5xl lg:max-w-7xl mx-auto"
+      >
+        <article class="flex flex-col gap-3 md:gap-4 px-2 md:px-4">
+          <header class="flex flex-col gap-2">
+            <h3
+              class="md:text-lg text-tertiary font-bold font-sans uppercase tracking-widest"
+            >
+              Our Heritage
+            </h3>
+            <h2 class="text-3xl md:text-4xl tracking-wide leading-snug">
+              Bryan's Legacy: Defined by Community.
+            </h2>
+          </header>
+          <div class="flex flex-col gap-2">
+            <p class="md:text-lg lg:text-xl text-balance py-2 leading-relaxed">
+              Founded in 2018, Bryan's Cafe started as a simple idea: that
+              coffee should be more than a caffeine fix—it should be a ritual.
+              We source our beans from single-origin farms that prioritize
+              sustainability and fair wages.
             </p>
-            <p class="font-semibold">Bryan, Founder</p>
+            <p
+              class="md:text-lg lg:text-xl text-balance border-b border-primary pt-2 pb-4 leading-relaxed"
+            >
+              Every cup is brewed with precision, and every plate is prepared
+              with seasonal ingredients from local growers. We invite you to sit
+              back, unplug, and enjoy the modern hearth.
+            </p>
+            <div class="flex flex-col gap-1 mt-4">
+              <p class="text-lg lg:text-xl font-serif italic">
+                "The best coffee is the one shared with others."
+              </p>
+              <p class="text-sm md:text-base font-semibold">Bryan, Founder</p>
+            </div>
           </div>
+        </article>
+        <div
+          class="grid grid-cols-2 gap-3 md:gap-4 py-8 md:py-16 px-2 md:px-0 max-w-full md:max-w-[90%] mx-auto"
+        >
+          <img
+            src="./images/history.png"
+            alt="Bryan's Cafe interior with customers enjoying coffee"
+            class="w-full h-60 md:h-full rounded-lg object-cover"
+          />
+          <img
+            src="/images/history_2.png"
+            alt="Cozy coffee shop interior with warm lighting and rustic decor"
+            class="w-full h-60 md:h-full rounded-lg object-cover mt-16"
+          />
         </div>
-      </article>
-      <div class="grid grid-cols-2 gap-4 py-16 px-6 max-w-[90%] mx-auto">
-        <img
-          src="./images/history.png"
-          alt="Bryan's Cafe interior with customers enjoying coffee"
-          class="w-full h-full rounded-lg object-cover"
-        />
-        <img
-          src="/images/history_2.png"
-          alt="Cozy coffee shop interior with warm lighting and rustic decor"
-          class="w-full h-full rounded-lg object-cover mt-16"
-        />
       </div>
     </section>
   </main>
