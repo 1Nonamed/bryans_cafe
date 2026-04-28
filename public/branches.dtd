@@ -1,0 +1,8 @@
+<!ELEMENT branches (branch+)>
+<!ELEMENT branch (address, phoneNumber, schedule, variant?)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT phoneNumber (#PCDATA)>
+<!ELEMENT schedule (#PCDATA | weekdays | weekends)*>
+<!ELEMENT weekdays (#PCDATA)>
+<!ELEMENT weekends (#PCDATA)>
+<!ELEMENT variant (#PCDATA)>
