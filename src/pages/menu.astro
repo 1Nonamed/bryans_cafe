@@ -2,59 +2,101 @@
 import ProductCard from "../components/ProductCard.astro";
 import ProductSection from "../components/ProductSection.astro";
 import Layout from "../layouts/Layout.astro";
+
+import { XMLParser } from "fast-xml-parser";
+
+// Fetch from xml
+const res = await fetch(new URL("/menu.xml", Astro.url));
+const xmlData = await res.text();
+
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: "@_",
+});
+const JSONObj = parser.parse(xmlData);
+
+// console.log("Parsed JSON:", JSON.stringify(JSONObj, null, 2));
+const products: Product[] = JSONObj?.menu?.product || [];
+
+// Interfaces for TS warnings
+interface PriceOption {
+  label: string;
+  value: string;
+}
+
+interface Product {
+  name: string;
+  price: string | PriceOption[];
+  imageUrl: string;
+  description: string;
+  category?: string;
+}
+
+const getProductsByCategory = (category: string) =>
+  products.filter((p) => p.category === category);
+
+const coffeeProducts = getProductsByCategory("coffee");
+const chocolateProducts = getProductsByCategory("chocolate");
+const otherProducts = getProductsByCategory("other");
+const mealProducts = getProductsByCategory("meal");
 ---
 
 <Layout>
   <main>
-    <section class="bg-neutral px-6 pt-12 pb-16">
-      <article class="text-center flex flex-col gap-4">
-        <h1
-          class="text-tertiary text-5xl text-balance font-bold tracking-wide leading-tight py-2"
-        >
-          Our Crafted Menu
-        </h1>
-        <p class="text-xl text-balance py-2 tracking-wide leading-relaxed">
-          Carefully sourced, thoughtfully prepared. Every item is a reflection
-          of our commitment to slow-living and artisanal quality.
-        </p>
-      </article>
+    <section class="bg-neutral px-4 md:px-6 py-16 md:py-32">
+      <div class="md:max-w-5xl mx-auto">
+        <article class="text-center flex flex-col gap-4 md:gap-8 px-2 md:px-4">
+          <h1
+            class="text-tertiary text-5xl md:text-7xl text-balance font-bold tracking-wide leading-tight"
+          >
+            Our Crafted Menu
+          </h1>
+          <p
+            class="text-lg lg:text-xl text-balance py-2 tracking-wide leading-relaxed"
+          >
+            Carefully sourced, thoughtfully prepared. Every item is a reflection
+            of our commitment to slow-living and artisanal quality.
+          </p>
+          <p
+            class="text-lg lg:text-xl text-balance py-2 tracking-wide leading-relaxed"
+          >
+            Explore our curated collection of ethically sourced beans and
+            handcrafted pastries, prepared fresh every morning in our sanctuary.
+          </p>
+        </article>
+      </div>
     </section>
     <ProductSection title="Coffee">
-      <ProductCard
-        product="Coffee Late"
-        price="4.00"
-        imageUrl="/public/images/products/coffee-latte.png"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
-        category="coffee"
-      />
+      {coffeeProducts.map((product) => <ProductCard {...product} />)}
+      {
+        coffeeProducts.length === 0 && (
+          <p>There are no products available at the moment, apologies!</p>
+        )
+      }
     </ProductSection>
     <ProductSection title="Chocolate">
-      <ProductCard
-        product="Soda"
-        price="4.00"
-        imageUrl="/public/images/products/coffee-latte.png"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
-      />
+      {chocolateProducts.map((product) => <ProductCard {...product} />)}
+      {
+        chocolateProducts.length === 0 && (
+          <p>There are no products available at the moment, apologies!</p>
+        )
+      }
     </ProductSection>
     <ProductSection title="Other Beverages">
-      <ProductCard
-        product="Soda"
-        price="3.00"
-        imageUrl="/public/images/products/coffee-latte.png"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
-      />
-      <ProductCard
-        product="Fresh Juice"
-        price="6.00"
-        imageUrl="/public/images/products/coffee-latte.png"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
-      />
-      <ProductCard
-        product="Bottled Water"
-        price="3.00"
-        imageUrl="/public/images/products/coffee-latte.png"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium."
-      />
+      {otherProducts.map((product) => <ProductCard {...product} />)}
+      {
+        otherProducts.length === 0 && (
+          <p>There are no products available at the moment, apologies!</p>
+        )
+      }
+    </ProductSection>
+    <ProductSection title="Meals">
+      {mealProducts.map((product) => <ProductCard {...product} />)}
+      {
+        mealProducts.length === 0 && (
+          <p>There are no products available at the moment, apologies!</p>
+        )
+      }
     </ProductSection>
   </main>
 </Layout>

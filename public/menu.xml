@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu SYSTEM "menu.dtd">
+<menu>
+    <product>
+        <name>Latte</name>
+        <price>
+            <size label="S">3.50</size>
+            <size label="M">4.50</size>
+            <size label="L">5.50</size>
+        </price>
+        <imageUrl>/images/products/latte.webp</imageUrl>
+        <description>Double shot espresso with velvety micro-foam.</description>
+        <category>coffee</category>
+    </product>
+    <product>
+        <name>Cappuccino</name>
+        <price>
+            <size label="S">3.50</size>
+            <size label="M">4.50</size>
+            <size label="L">5.50</size>
+        </price>
+        <imageUrl>/images/products/cappuccino.webp</imageUrl>
+        <description>Our espresso-based coffee drink traditionally prepared with steamed milk.</description>
+        <category>coffee</category>
+    </product>
+    <product>
+        <name>Hot Chocolate</name>
+        <price>
+            <size label="S">3.50</size>
+            <size label="M">4.50</size>
+            <size label="L">5.50</size>
+        </price>
+        <imageUrl>/images/products/hot-chocolate.webp</imageUrl>
+        <description>Sweetened and garnished with whipped cream or marshmallows.</description>
+        <category>chocolate</category>
+    </product>
+    <product>
+        <name>Soda</name>
+        <price>3.00</price>
+        <imageUrl>/images/products/soda.webp</imageUrl>
+        <description>A sweetened, carbonated, non-alcoholic beverage containing flavored syrup and
+            carbonated water.</description>
+        <category>other</category>
+    </product>
+    <product>
+        <name>Fresh Juice</name>
+        <price>6.00</price>
+        <imageUrl>/images/products/juice.jpg</imageUrl>
+        <description>A vibrant, tropical beverage extracted from the pulp of ripe purple or yellow
+            passion fruit.</description>
+        <category>other</category>
+    </product>
+    <product>
+        <name>Bottled Water</name>
+        <price>3.00</price>
+        <imageUrl>/images/products/bottled-water.webp</imageUrl>
+        <description>Simple. Refreshing. Yours!</description>
+        <category>other</category>
+    </product>
+    <product>
+        <name>Beetroot and Feta Salad</name>
+        <price>15.00</price>
+        <imageUrl>/images/products/beetroot-feta-salad.jpg</imageUrl>
+        <description>Suitable for vegetarian, made with fresh beetroot.</description>
+        <category>meal</category>
+    </product>
+    <product>
+        <name>Sourdough Rye Sandwich</name>
+        <price>18.00</price>
+        <imageUrl>/images/products/sourdough-rye-sandwich.avif</imageUrl>
+        <description>Cheese and salas sandwich made with organic, sourdough rye bread.</description>
+        <category>meal</category>
+    </product>
+    <product>
+        <name>Spinach Pie and Salad</name>
+        <price>20.00</price>
+        <imageUrl>/images/products/spinach-pie-salad.webp</imageUrl>
+        <description>Tasty pie with salad.</description>
+        <category>meal</category>
+    </product>
+    <product>
+        <name>Feta Pancakes with Salad</name>
+        <price>19.50</price>
+        <imageUrl>/images/products/feta-pancakes-salad.webp</imageUrl>
+        <description>Tasty pancake filled with feta and salad.</description>
+        <category>meal</category>
+    </product>
+</menu>

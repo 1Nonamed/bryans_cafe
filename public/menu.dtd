@@ -1,0 +1,9 @@
+<!ELEMENT menu (product+)>
+<!ELEMENT product (name, price, imageUrl, description, category?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA | size)*>
+<!ELEMENT size (#PCDATA)>
+<!ATTLIST size label CDATA #REQUIRED>
+<!ELEMENT imageUrl (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
