@@ -4,9 +4,12 @@ import ContactForm from "../components/ContactForm.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { XMLParser } from "fast-xml-parser";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
-const res = await fetch(new URL("/branches.xml", Astro.url));
-const xmlData = await res.text();
+// Read from xml
+const xmlPath = path.join(process.cwd(), "public", "menu.xml");
+const xmlData = await readFile(xmlPath, "utf-8");
 
 const parser = new XMLParser({
   ignoreAttributes: false,

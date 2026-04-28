@@ -4,26 +4,12 @@ import ProductSection from "../components/ProductSection.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { XMLParser } from "fast-xml-parser";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
-// Map local asset filenames to Vite URLs
-const productImages = import.meta.glob(
-  "../assets/products/*.{jpg,jpeg,png,webp,avif}",
-  {
-    eager: true,
-    as: "url",
-  },
-);
-
-const imageMap = Object.fromEntries(
-  Object.entries(productImages).map(([path, url]) => [
-    path.split("/").pop(),
-    url as string,
-  ]),
-);
-
-// Fetch from xml
-const res = await fetch(new URL("/menu.xml", Astro.url));
-const xmlData = await res.text();
+// Read from xml
+const xmlPath = path.join(process.cwd(), "public", "menu.xml");
+const xmlData = await readFile(xmlPath, "utf-8");
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -31,12 +17,8 @@ const parser = new XMLParser({
 });
 const JSONObj = parser.parse(xmlData);
 
-// console.log("Parsed JSON:", JSON.stringify(JSONObj, null, 2));
-const products: Product[] =
-  (JSONObj?.menu?.product || []).map((product: any) => ({
-    ...product,
-    imageUrl: imageMap[product.imageUrl] || product.imageUrl,
-  })) || [];
+console.log("Parsed JSON:", JSON.stringify(JSONObj, null, 2));
+const products: Product[] = JSONObj?.menu?.product || [];
 
 // Interfaces for TS warnings
 interface PriceOption {
