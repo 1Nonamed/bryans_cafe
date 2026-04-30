@@ -34,4 +34,26 @@ import Button from "./ui/Button.astro";
     autocomplete="off"
     rows="4"></textarea>
   <Button title="Send Message" bg="bg-tertiary" />
+  <p
+    id="contact-success"
+    class="hidden rounded-md bg-tertiary/15 border border-tertiary text-tertiary px-4 py-2 text-sm mt-3"
+  >
+    Message submitted successfully.
+  </p>
 </form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const successMessage = document.getElementById("contact-success");
+
+    if (!form || !successMessage) return;
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      form.reset();
+      successMessage.classList.remove("hidden");
+      setTimeout(() => successMessage.classList.add("hidden"), 4000);
+    });
+  });
+</script>
